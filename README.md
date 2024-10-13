@@ -1,12 +1,12 @@
 # Roadmaps
 ## Tracking features
 [] Tracking:
-    [] Works 
-    [] Leasures 
-    [] Training 
-    [] Sleeping
-    [] Foods
-    [] Reading
+    - [] Works 
+    - [] Leasures 
+    - [] Training 
+    - [] Sleeping
+    - [] Foods
+    - [] Reading
 
 ## Analytic features
 ### Basic features
