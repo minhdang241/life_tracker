@@ -1,23 +1,32 @@
 # Roadmaps
 ## Tracking features
-[] Tracking:
-    - [] Works 
-    - [] Leasures 
-    - [] Training 
-    - [] Sleeping
-    - [] Foods
-    - [] Reading
+Tracking:
+- Works 
+- Leasures 
+- Training 
+- Sleeping
+- Foods
+- Reading
 
 ## Analytic features
 ### Basic features
-[] Compare
-### Advanced features
-[] Suggest action to improve
+- Comparing the performance to previous day/week/month/year
+- Showing the progress (big picture)
 
-# Files
-- manage.py: helps with management of the project 
-- settings.py: contains the settings of the project
-- urls.py: contains the URL patterns of the project
+### Advanced features
+- Suggesting action(s) to improve: LLM?
+
+# Tech stack && System Design
+## Tech stack
+- API development: FastAPI
+- Visualization: Streamlit
+- Database: 
+    - Google Calendar
+    - Google Sheet
+- Analyzing tool: Google colab :) 
+
+## Deployment
+- Try to find some free credits from my connections
 
 
 
