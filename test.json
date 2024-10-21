@@ -1,0 +1,193 @@
+{
+    "kind": "calendar#events",
+    "etag": "\"p338e1mebsef8i0o\"",
+    "summary": "d.baminh@gmail.com",
+    "description": "",
+    "updated": "2024-10-21T05:50:04.882Z",
+    "timeZone": "Australia/Sydney",
+    "accessRole": "owner",
+    "defaultReminders": [
+        {
+            "method": "popup",
+            "minutes": 30
+        }
+    ],
+    "items": [
+        {
+            "kind": "calendar#event",
+            "etag": "\"3458979183116000\"",
+            "id": "4ad8f3b43cd54039a4e561202000401d",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=NGFkOGYzYjQzY2Q1NDAzOWE0ZTU2MTIwMjAwMDQwMWQgZC5iYW1pbmhAbQ",
+            "created": "2024-10-20T22:47:46.000Z",
+            "updated": "2024-10-21T05:46:31.558Z",
+            "summary": "COMP9020 Tutorial",
+            "colorId": "2",
+            "creator": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2024-10-21T10:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "end": {
+                "dateTime": "2024-10-21T12:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "iCalUID": "4ad8f3b43cd54039a4e561202000401d@google.com",
+            "sequence": 0,
+            "guestsCanModify": true,
+            "reminders": {
+                "useDefault": false,
+                "overrides": [
+                    {
+                        "method": "popup",
+                        "minutes": 30
+                    }
+                ]
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3458951213724000\"",
+            "id": "624lh4b0ntt4ukt80dlm1t4ntf",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=NjI0bGg0YjBudHQ0dWt0ODBkbG0xdDRudGYgZC5iYW1pbmhAbQ",
+            "created": "2024-10-21T01:51:48.000Z",
+            "updated": "2024-10-21T01:53:26.862Z",
+            "summary": "Lunch",
+            "colorId": "8",
+            "creator": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2024-10-21T12:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "end": {
+                "dateTime": "2024-10-21T13:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "iCalUID": "624lh4b0ntt4ukt80dlm1t4ntf@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3458951228878000\"",
+            "id": "7j1u2jvcmib9dvqql4u29d584r",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=N2oxdTJqdmNtaWI5ZHZxcWw0dTI5ZDU4NHIgZC5iYW1pbmhAbQ",
+            "created": "2024-10-21T01:52:07.000Z",
+            "updated": "2024-10-21T01:53:34.439Z",
+            "summary": "Planning + Relfection",
+            "colorId": "2",
+            "creator": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2024-10-21T13:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "end": {
+                "dateTime": "2024-10-21T14:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "iCalUID": "7j1u2jvcmib9dvqql4u29d584r@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3458952977528000\"",
+            "id": "22aibcdutse6vjnjnek87sq6kb_20241021T030000Z",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=MjJhaWJjZHV0c2U2dmpuam5lazg3c3E2a2JfMjAyNDEwMjFUMDMwMDAwWiBkLmJhbWluaEBt",
+            "created": "2024-10-21T02:07:37.000Z",
+            "updated": "2024-10-21T02:08:08.764Z",
+            "summary": "Body Training",
+            "creator": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2024-10-21T14:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "end": {
+                "dateTime": "2024-10-21T16:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "recurringEventId": "22aibcdutse6vjnjnek87sq6kb",
+            "originalStartTime": {
+                "dateTime": "2024-10-21T14:00:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "iCalUID": "22aibcdutse6vjnjnek87sq6kb@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        },
+        {
+            "kind": "calendar#event",
+            "etag": "\"3458953099522000\"",
+            "id": "6n2a0hq69ui9n4c3pvs2qdlir4",
+            "status": "confirmed",
+            "htmlLink": "https://www.google.com/calendar/event?eid=Nm4yYTBocTY5dWk5bjRjM3B2czJxZGxpcjQgZC5iYW1pbmhAbQ",
+            "created": "2024-10-21T02:09:09.000Z",
+            "updated": "2024-10-21T02:09:09.761Z",
+            "summary": "Work",
+            "colorId": "2",
+            "creator": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "organizer": {
+                "email": "d.baminh@gmail.com",
+                "self": true
+            },
+            "start": {
+                "dateTime": "2024-10-21T16:30:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "end": {
+                "dateTime": "2024-10-21T20:45:00+11:00",
+                "timeZone": "Australia/Sydney"
+            },
+            "iCalUID": "6n2a0hq69ui9n4c3pvs2qdlir4@google.com",
+            "sequence": 0,
+            "reminders": {
+                "useDefault": true
+            },
+            "eventType": "default"
+        }
+    ]
+}
