@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import datetime
-from collections import defaultdict
 from contextlib import asynccontextmanager
+from datetime import datetime, time, timedelta
 
+import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
 from fastapi import FastAPI
 from google.oauth2 import service_account
@@ -12,6 +12,8 @@ from googleapiclient.discovery import build
 from calc_working_time import calculate_working_time
 
 scheduler = BackgroundScheduler()
+
+sydney_tz = pytz.timezone("Australia/Sydney")
 
 
 def crawl_google_calendar_data():
@@ -24,8 +26,14 @@ def crawl_google_calendar_data():
     service = build("calendar", "v3", credentials=credentials)
 
     calendar_id = "d.baminh@gmail.com"
-    now = "2024-10-22T00:00:00+11:00"
-    then = "2024-10-23T00:00:00+11:00"
+    now = sydney_tz.localize(
+        datetime.combine(datetime.now(sydney_tz).date(), time(0, 0, 0))
+    ).isoformat()
+    then = sydney_tz.localize(
+        datetime.combine(
+            datetime.now(sydney_tz).date() + timedelta(days=1), time(0, 0, 0)
+        )
+    ).isoformat()
     events = (
         service.events()
         .list(
