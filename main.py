@@ -10,10 +10,12 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 from calc_working_time import calculate_working_time
+from models.google_sheet import GoogleSheetService
 
 scheduler = BackgroundScheduler()
 
 sydney_tz = pytz.timezone("Australia/Sydney")
+google_sheet_service = GoogleSheetService()
 
 
 def crawl_google_calendar_data():
