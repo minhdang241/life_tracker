@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import datetime
 from collections import defaultdict
 from contextlib import asynccontextmanager
-from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from fastapi import FastAPI
@@ -23,18 +23,27 @@ def crawl_google_calendar_data():
     )
     service = build("calendar", "v3", credentials=credentials)
 
-    events = service.events().list(calendarId="d.baminh@gmail.com").execute()
-    print(f"events: ", events)
-    for event in events["items"]:
-        print(event["summary"])
-    print(f"Task executed at {datetime.now()}")
-    data = defaultdict(list)
-    return data
+    calendar_id = "d.baminh@gmail.com"
+    now = "2024-10-22T00:00:00+11:00"
+    then = "2024-10-23T00:00:00+11:00"
+    events = (
+        service.events()
+        .list(
+            calendarId=calendar_id,
+            timeMin=now,
+            timeMax=then,
+            singleEvents=True,
+            orderBy="startTime",
+        )
+        .execute()
+    )
+    return events
 
 
 def calculate_working_hours():
     data = crawl_google_calendar_data()
-    print(f"Working hours: {calculate_working_time(data)}")
+    total_duration = calculate_working_time(data)
+    print(f"Total time spent on [WORK] events: {total_duration} hours")
 
 
 @asynccontextmanager
