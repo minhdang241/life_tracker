@@ -10,7 +10,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
 from calc_working_time import calculate_working_time
-from models.google_sheet import GoogleSheetService
+from models.google_sheet import GoogleSheetService, dates2ranges
 
 scheduler = BackgroundScheduler()
 
@@ -53,13 +53,17 @@ def crawl_google_calendar_data():
 def calculate_working_hours():
     data = crawl_google_calendar_data()
     total_duration = calculate_working_time(data)
+    today = datetime.now(sydney_tz).strftime("%A")
+    week_number = datetime.now(sydney_tz).isocalendar()[1]
+    ranges = f"Sheet1!{dates2ranges(today, week_number)}"
+    google_sheet_service.write(ranges, [[total_duration]])
     print(f"Total time spent on [WORK] events: {total_duration} hours")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     scheduler.start()
-    scheduler.add_job(calculate_working_hours, "interval", seconds=5)
+    scheduler.add_job(calculate_working_hours, "interval", hours=12)
     yield
     scheduler.shutdown()
 
