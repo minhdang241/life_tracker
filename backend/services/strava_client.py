@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from typing import Dict, List
 
 from dotenv import load_dotenv
@@ -12,7 +13,8 @@ load_dotenv()
 
 class StravaClient:
     def __init__(self):
-        with open("src/services/strava_secret.json", "r") as f:
+        SECRET_FILE = os.getenv("STRAVA_SECRET_FILE")
+        with open(SECRET_FILE, "r") as f:
             secret = json.load(f)
             self.client = Client(
                 access_token=secret["access_token"],
