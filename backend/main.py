@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+from typing import Dict, List
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
+from stravalib.model import SummaryActivity
 
 from backend.services.strava_client import StravaClient
 from backend.services.supabase_client import SupabaseClient
@@ -42,8 +45,9 @@ def get_activities():
 @app.get("/api/strava/activities:download")
 def download_activities():
     try:
-        activities = strava_client.get_activities()
-        supabase_client.upload_json(activities, "activities.json")
+        activities: List[SummaryActivity] = strava_client.get_activities()
+        activities_data: List[Dict] = [activity.model_dump() for activity in activities]
+        supabase_client.upload_json(activities_data, "activities.json")
         return {"message": len(activities)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

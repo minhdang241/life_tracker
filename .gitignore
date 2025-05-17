@@ -12,3 +12,5 @@ backend/services/strava_secret.json
 
 .vscode/
 .env
+
+notebook/*

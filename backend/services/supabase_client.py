@@ -3,8 +3,9 @@ from __future__ import annotations
 import json
 import logging
 import os
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
+import plotly
 import requests
 from dotenv import load_dotenv
 from supabase import Client, create_client
@@ -20,7 +21,7 @@ class SupabaseClient:
         self.client: Client = create_client(self.url, self.key)
         self.bucket_name: str = os.getenv("SUPABASE_BUCKET_NAME", "activities")
 
-    def upload_json(self, data: Dict, file_name: str) -> Dict:
+    def upload_json(self, data: List[Dict], file_name: str) -> Dict:
         """Upload a JSON object to Supabase Storage
 
         Args:
@@ -32,7 +33,7 @@ class SupabaseClient:
         """
         try:
             # Convert dict to JSON string
-            json_str = json.dumps(data, default=str)
+            json_str = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
 
             # Upload to Supabase storage
             response = self.client.storage.from_(self.bucket_name).upload(
