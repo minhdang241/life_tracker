@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import RedirectResponse
 
-from src.services.strava_client import StravaClient
-from src.services.supabase_client import SupabaseClient
+from backend.services.strava_client import StravaClient
+from backend.services.supabase_client import SupabaseClient
 
 app = FastAPI()
 strava_client = StravaClient()
