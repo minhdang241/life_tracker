@@ -63,7 +63,7 @@ def calculate_working_hours():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     scheduler.start()
-    scheduler.add_job(calculate_working_hours, "interval", hours=12)
+    scheduler.add_job(calculate_working_hours, "interval", seconds=3)
     yield
     scheduler.shutdown()
 
