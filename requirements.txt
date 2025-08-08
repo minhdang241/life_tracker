@@ -1,6 +1,12 @@
+APScheduler
 fastapi
+google-api-python-client
+google-auth
+google-auth-httplib2
+google-auth-oauthlib
 plotly
 python-dotenv
+pytz
 requests
 stravalib
 supabase

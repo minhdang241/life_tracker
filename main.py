@@ -1,7 +1,12 @@
 from __future__ import annotations
 
+import os
 from contextlib import asynccontextmanager
 from datetime import datetime, time, timedelta
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -28,14 +33,27 @@ def crawl_google_calendar_data():
     service = build("calendar", "v3", credentials=credentials)
 
     calendar_id = "d.baminh@gmail.com"
-    now = sydney_tz.localize(
-        datetime.combine(datetime.now(sydney_tz).date(), time(0, 0, 0))
-    ).isoformat()
+
+    # Get today's date in Sydney timezone
+    today = datetime.now(sydney_tz).date()
+
+    # Calculate last Monday (start of last week)
+    days_since_monday = today.weekday()  # Monday is 0, Sunday is 6
+    last_monday = today - timedelta(days=days_since_monday + 7)
+
+    # Calculate last Sunday (end of last week)
+    last_sunday = last_monday + timedelta(days=6)
+
+    # Set time to start of Monday (00:00:00)
+    now = sydney_tz.localize(datetime.combine(last_monday, time(0, 0, 0))).isoformat()
+
+    # Set time to end of Sunday (23:59:59)
     then = sydney_tz.localize(
-        datetime.combine(
-            datetime.now(sydney_tz).date() + timedelta(days=1), time(0, 0, 0)
-        )
+        datetime.combine(last_sunday, time(23, 59, 59))
     ).isoformat()
+
+    print(f"Fetching events from {last_monday} to {last_sunday}")
+
     events = (
         service.events()
         .list(
@@ -54,23 +72,26 @@ def calculate_working_hours():
     data = crawl_google_calendar_data()
     total_duration = calculate_working_time(data)
     today = datetime.now(sydney_tz).strftime("%A")
-    week_number = datetime.now(sydney_tz).isocalendar()[1]
-    ranges = f"Sheet1!{dates2ranges(today, week_number)}"
-    google_sheet_service.write(ranges, [[total_duration]])
+    # week_number = datetime.now(sydney_tz).isocalendar()[1]
+    # ranges = f"Sheet1!{dates2ranges(today, week_number)}"
+    # google_sheet_service.write(ranges, [[total_duration]])
     print(f"Total time spent on [WORK] events: {total_duration} hours")
 
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    scheduler.start()
-    scheduler.add_job(calculate_working_hours, "interval", seconds=3)
-    yield
-    scheduler.shutdown()
+if __name__ == "__main__":
+    calculate_working_hours()
+
+# @asynccontextmanager
+# async def lifespan(app: FastAPI):
+# scheduler.start()
+# scheduler.add_job(calculate_working_hours, "interval", seconds=3)
+# yield
+# scheduler.shutdown()
 
 
-app = FastAPI(lifespan=lifespan)
+# app = FastAPI(lifespan=lifespan)
+#
 
-
-@app.get("/")
-def read_root():
-    return {"message": "FastAPI with scheduled tasks"}
+# @app.get("/")
+# def read_root():
+# return {"message": "FastAPI with scheduled tasks"}

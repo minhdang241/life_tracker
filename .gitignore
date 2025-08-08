@@ -9,8 +9,15 @@ db.sqlite3-journal
 media
 venv/*
 backend/services/strava_secret.json
-
 .vscode/
 .env
-
 notebook/*
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.nitro
+.tanstack
