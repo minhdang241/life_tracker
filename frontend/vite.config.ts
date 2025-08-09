@@ -4,12 +4,9 @@ import {defineConfig} from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  server: {
-    host: '::',
-    port: 8080
-  },  // bind the development server to run on port 8080
+  // bind the development server to run on port 8080
+  server: {host: '::', port: 8080},
   plugins: [react()],
-  resolve: {
-    alias: {'@': path.resolve(__dirname, './src')}
-  }  // create a shortcut to import file using @/
+  // bind the development server to run on port 8080
+  resolve: {alias: {'@': path.resolve(__dirname, './src')}}
 })

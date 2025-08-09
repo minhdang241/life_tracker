@@ -19,10 +19,12 @@ repos:
     rev: 5.12.0
     hooks:
       - id: isort
+        files: ^backend/.*\.py$
         args: ["-a", "from __future__ import annotations"]
 
   - repo: https://github.com/psf/black
     rev: 24.10.0
     hooks:
       - id: black
-        args: ["--target-version", "py310"]
+        files: ^backend/.*\.py$
+        args: ["--target-version", "py312"]
