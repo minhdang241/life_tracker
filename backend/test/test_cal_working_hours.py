@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 
-from calc_working_time import calculate_working_time
+from backend.services.calc_working_time import calculate_working_time
 
 
 def test_calculate_working_time():

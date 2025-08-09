@@ -10,12 +10,12 @@ load_dotenv()
 
 import pytz
 from apscheduler.schedulers.background import BackgroundScheduler
+from backend.services.calc_working_time import calculate_working_time
 from fastapi import FastAPI
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
-from calc_working_time import calculate_working_time
-from models.google_sheet import GoogleSheetService, dates2ranges
+from backend.src.services.google_sheet import GoogleSheetService, dates2ranges
 
 scheduler = BackgroundScheduler()
 
