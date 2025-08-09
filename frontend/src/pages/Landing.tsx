@@ -141,7 +141,7 @@ const Landing = () => {
       <footer className="bg-card border-t py-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-muted-foreground">
-            © 2024 TimeTracker Pro. Built for those who value their time.
+            © 2025 TimeTracker Pro. Built for those who value their time.
           </p>
         </div>
       </footer>
